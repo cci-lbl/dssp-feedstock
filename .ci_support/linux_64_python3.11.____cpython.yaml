@@ -6,6 +6,7 @@ cdt_name:
 - conda
 channel_sources:
 - conda-forge
+- phenix-project
 channel_targets:
 - conda-forge main
 cxx_compiler:
