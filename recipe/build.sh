@@ -13,4 +13,10 @@ cmake ${CMAKE_ARGS} --trace-expand -S . -B build \
 cmake --build build
 cmake --install build
 
+# during cross compiling, the Python extension is incorrectly put in $BUILD_PREFIX
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
+  ls ./build/lib
+  cp ./build/lib/mkdssp.so ${SP_DIR}
+fi
+
 ctest --output-on-failure --test-dir build || true
