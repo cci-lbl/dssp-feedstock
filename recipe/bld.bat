@@ -12,6 +12,9 @@ msbuild mkdssp.sln /property:Configuration=Release
 cd ..
 cmake --install build
 
+REM copy mkdssp.pyd file to correct location
+copy build\bin\Release\mkdssp.pyd %PREFIX%\lib\mkdssp.pyd
+
 REM remove extra files in bin
 del \S \Q %PREFIX%\bin\msvcp*.dll
 del \S \Q %PREFIX%\bin\vcruntime*.dll
